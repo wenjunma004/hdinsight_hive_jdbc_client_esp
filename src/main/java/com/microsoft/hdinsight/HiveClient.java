@@ -15,10 +15,10 @@ public class HiveClient {
 
     public static void main(String[] args) throws Exception {
         Class.forName(HiveDriverName);
-        org.apache.hadoop.conf.Configuration conf = new org.apache.hadoop.conf.Configuration();
-        conf.set("hadoop.security.authentication", "Kerberos");
-        UserGroupInformation.setConfiguration(conf);
-        UserGroupInformation.loginUserFromKeytab("hive/_HOST@SECUREHADOOPRC.ONMICROSOFT.COM", "/etc/security/keytabs/hive.service.keytab");
+//        org.apache.hadoop.conf.Configuration conf = new org.apache.hadoop.conf.Configuration();
+//        conf.set("hadoop.security.authentication", "Kerberos");
+//        UserGroupInformation.setConfiguration(conf);
+//        UserGroupInformation.loginUserFromKeytab("hive/_HOST@SECUREHADOOPRC.ONMICROSOFT.COM", "/etc/security/keytabs/hive.service.keytab");
 
         Connection con = DriverManager.getConnection(jdbcUrl);
         System.out.println("\nGot Connection: " + con);
