@@ -1,1 +1,2 @@
-# hdinsight_hive_jdbc_client_esp
+## How to run?
+### mvn clean install exec:java
