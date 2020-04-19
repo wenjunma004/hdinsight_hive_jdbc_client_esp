@@ -11,7 +11,7 @@ import java.sql.*;
 public class HiveClient {
 
     private static String HiveDriverName = "org.apache.hive.jdbc.HiveDriver";
-    private static String jdbcUrl = "dbc:hive2://zk0-llaphw.securehadooprc.onmicrosoft.com:2181,zk1-llaphw.securehadooprc.onmicrosoft.com:2181,zk3-llaphw.securehadooprc.onmicrosoft.com:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2-interactive;principal=hive/_HOST@SECUREHADOOPRC.ONMICROSOFT.COM";
+    private static String jdbcUrl = "jdbc:hive2://zk0-llaphw.securehadooprc.onmicrosoft.com:2181,zk1-llaphw.securehadooprc.onmicrosoft.com:2181,zk3-llaphw.securehadooprc.onmicrosoft.com:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2-interactive;principal=hive/_HOST@SECUREHADOOPRC.ONMICROSOFT.COM";
 
     public static void main(String[] args) throws Exception {
         Class.forName(HiveDriverName);
@@ -19,6 +19,7 @@ public class HiveClient {
         conf.set("hadoop.security.authentication", "Kerberos");
         UserGroupInformation.setConfiguration(conf);
         UserGroupInformation.loginUserFromKeytab("hive/_HOST@SECUREHADOOPRC.ONMICROSOFT.COM", "/etc/security/keytabs/hive.service.keytab");
+
         Connection con = DriverManager.getConnection(jdbcUrl);
         System.out.println("\nGot Connection: " + con);
         System.out.println("\nRun show tables command and listing 'default' Database tables of hive.");
