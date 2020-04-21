@@ -22,6 +22,7 @@ import java.net.InetAddress;
 import java.net.URI;
 import java.net.UnknownHostException;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -699,7 +700,9 @@ public class Utils {
      */
     public static String getCanonicalHostName(String hostName) {
         try {
-            return InetAddress.getByName(hostName).getCanonicalHostName();
+            InetAddress it = InetAddress.getByName(hostName);
+            System.out.println("------->  getCanonicalHostName:  InetAddress.getByName(hostName):"+ it);
+            return it.getCanonicalHostName();
         }
         catch(UnknownHostException exception) {
             LOG.warn("Could not retrieve canonical hostname for " + hostName, exception);
