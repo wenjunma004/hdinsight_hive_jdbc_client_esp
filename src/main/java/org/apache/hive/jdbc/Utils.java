@@ -18,11 +18,9 @@
 
 package org.apache.hive.jdbc;
 
-import java.net.InetAddress;
 import java.net.URI;
 import java.net.UnknownHostException;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
