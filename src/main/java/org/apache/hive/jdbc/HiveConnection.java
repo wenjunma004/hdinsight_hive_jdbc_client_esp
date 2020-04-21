@@ -173,7 +173,7 @@ public class HiveConnection implements java.sql.Connection {
         // hive_var_list -> hiveVarMap
         System.out.println("-----> HiveConnection host name:"+ connParams.getHost());
         host = Utils.getCanonicalHostName(connParams.getHost());
-        System.out.println("-----> HiveConnection  getCanonicalHostName host name:"+ connParams.getHost());
+        System.out.println("-----> HiveConnection  getCanonicalHostName host name:"+ host);
         port = connParams.getPort();
         sessConfMap = connParams.getSessionVars();
         isEmbeddedMode = connParams.isEmbeddedMode();
