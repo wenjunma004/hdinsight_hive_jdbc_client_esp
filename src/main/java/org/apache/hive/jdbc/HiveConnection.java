@@ -160,6 +160,7 @@ public class HiveConnection implements java.sql.Connection {
 
     public HiveConnection(String uri, Properties info) throws SQLException {
         setupLoginTimeout();
+        System.out.println("---->HiveConnection: URL:"+ uri + " info:" + info);
         try {
             connParams = Utils.parseURL(uri, info);
         } catch (ZooKeeperHiveClientException e) {
